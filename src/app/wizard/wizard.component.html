@@ -1,1 +1,55 @@
-<p>wizard works!</p>
+<div class="container">
+  <div class="progress-container">
+    <div class="progress" #progress id="progress"></div>
+    <div #circles class="circle active">1</div>
+    <div #circles class="circle">2</div>
+    <div #circles class="circle">3</div>
+  </div>
+
+  <div class="formContainer">
+    <div class="form activeForm" #form>
+        <form [formGroup]="registerForm">
+            <div class="form-control">
+              <label for="name">Name</label>
+              <input type="text" formControlName="name">
+            </div>
+
+            <div class="form-control">
+              <label for="email">Email</label>
+              <input type="text" formControlName="email">
+            </div>
+
+            <div class="form-control">
+              <label for="password">Password</label>
+              <input type="password" formControlName="password">
+            </div>
+        </form>
+    </div>
+
+    <div class="form" #form>
+      <form [formGroup]="loginForm">
+          <div class="form-control">
+            <label for="email">Email</label>
+            <input type="text" formControlName="email">
+          </div>
+
+          <div class="form-control">
+            <label for="password">Password</label>
+            <input type="password" formControlName="password">
+          </div>
+      </form>
+    </div>
+
+    <div class="form" #form>
+      <form [formGroup]="confirmForm">
+          <div class="form-control">
+            <input type="checkbox" id="agree" formControlName="agree">
+            <label for="agree">Are you agree with all condition</label>
+          </div>
+      </form>
+    </div>
+  </div>
+
+  <button class="btn" type="button" [disabled]="prevBtnDisable" (click)="prev()" id="prev" disabled>Prev</button>
+  <button class="btn" type="button" [disabled]="nextBtnDisable" (click)="next()" id="next">Next</button>
+</div>
